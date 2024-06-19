@@ -21,9 +21,30 @@ public class Main {
         
         // 输入上次考试成绩（int）和本次考试成绩（int），然后输出成绩提高的百分比，保留两位小数位（例如，21.75%）
         int score1,score2;
-        score1 = scanner.nextInt();
-        score2 = scanner.nextInt();
+        
+        while(true) {
+            score1 = scanner.nextInt();
 
+            if(score1 >= 60) {
+                System.out.println("第一次成绩及格");
+                break;
+            }
+            else {
+                System.out.println("第一次成绩不及格,请重新输入:");
+            }
+        }
+
+        while(true) {
+            score2 = scanner.nextInt();
+
+            if(score2 >= 60) {
+                System.out.println("第二次成绩及格");
+                break;
+            }
+            else {
+                System.out.println("第二次成绩不及格,请重新输入:");
+            }
+        }
         double rate = (double)(score2 - score1) / score2;
 
         System.out.printf("成绩提高了%.2f%%", rate * 100);
