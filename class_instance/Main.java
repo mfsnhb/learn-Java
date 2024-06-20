@@ -80,6 +80,19 @@ public class Main {
 
         City city7 = new City();
         System.out.println("city name: " + city7.getName() + " latitude: " + city7.getLatitude() + " longitude: " + city7.getLongitude());
+
+        // 重载测试
+        System.out.println("重载：");
+        City city8 = new City();
+
+        city8.setLocation();
+        System.out.println("city latitude: " + city8.getLatitude() + " longitude: " + city8.getLongitude());
+
+        city8.setLocation(31.2304);
+        System.out.println("city latitude: " + city8.getLatitude() + " longitude: " + city8.getLongitude());
+
+        city8.setLocation(31.2304, 121.4737);
+        System.out.println("city latitude: " + city8.getLatitude() + " longitude: " + city8.getLongitude());
     }
 }
 
@@ -121,6 +134,23 @@ class City {
     }
 
     public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    // 重载
+    public void setLocation() {
+        this.latitude = 0.0;
+        this.longitude = 0.0;
+    }
+
+    public void setLocation(double latitude) {
+        this.latitude = latitude;
+        this.longitude = 0.0;
+        System.out.println("缺少维度");
+    }
+
+    public void setLocation(double latitude, double longitude) {
+        this.latitude = latitude;
         this.longitude = longitude;
     }
 
