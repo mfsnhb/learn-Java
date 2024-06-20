@@ -70,6 +70,16 @@ public class Main {
 
         System.out.println("结果没变的原因是String不可变，重新赋值会改变原来String的内存位置，新增一个，而不是在原来的内存位置上更改。");
 
+        // 构造函数测试
+        System.out.println("构造函数测试：");
+        City city5 = new City("Shang Hai", 31.2304, 121.4737);
+        System.out.println("city name: " + city5.getName() + " latitude: " + city5.getLatitude() + " longitude: " + city5.getLongitude());
+
+        City city6 = new City("Bei Jing");
+        System.out.println("city name: " + city6.getName() + " latitude: " + city6.getLatitude() + " longitude: " + city6.getLongitude());
+
+        City city7 = new City();
+        System.out.println("city name: " + city7.getName() + " latitude: " + city7.getLatitude() + " longitude: " + city7.getLongitude());
     }
 }
 
@@ -77,6 +87,30 @@ class City {
     private String name;
     private double latitude;
     private double longitude;
+
+    // 添加构造函数
+
+    public City(String name, double latitude, double longitude) {
+        this.name = name;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }  
+
+    public City(String name) {
+        this.name = name;
+        this.latitude = 0.0;
+        this.longitude = 0.0;
+
+        // this(name, 0.0, 0.0);
+    }
+
+    public City() {
+        this.name = "Unamed";
+        this.latitude = 0.0;
+        this.longitude = 0.0;
+
+        // this("Uname", 0.0, 0.0);
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -101,22 +135,6 @@ class City {
     public double getLongitude() {
         return longitude;
     }
-}
-
-class Book {
-    public String name;
-    public String author;
-    public int no;
-    public String compress;
-    public double price;
-    
-}
-
-class Person {
-
-    public String name;
-    public int age;
-    
 }
 
 class Group {
