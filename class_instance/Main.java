@@ -93,13 +93,19 @@ public class Main {
 
         city8.setLocation(31.2304, 121.4737);
         System.out.println("city latitude: " + city8.getLatitude() + " longitude: " + city8.getLongitude());
+
+        // 继承
+        System.out.println("继承：");
+        Capital city9 = new Capital("Nan Jing", 118.7969, 32.0603, "Jiang Su", "China");
+
+        System.out.println("city name: " + city9.getName() + " latitude: " + city9.getLatitude() + " longitude: " + city9.getLongitude() + " province: " + city9.getProvince() + " country: " + city9.getCountry());
     }
 }
 
 class City {
-    private String name;
-    private double latitude;
-    private double longitude;
+    protected String name;
+    protected double latitude;
+    protected double longitude;
 
     // 添加构造函数
 
@@ -167,8 +173,33 @@ class City {
     }
 }
 
+class Capital extends City {
+    protected String province;
+    protected String country;
+
+    public Capital(String name, double longtitude, double latitude, String province, String country) {
+        super(name, latitude, longtitude);
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+ 
+    public String getCountry() {
+        return country;
+    }
+}
+
 class Group {
-    private String[] names;
+    protected String[] names;
 
     public void setNames(String[] names) {
         this.names = names;
