@@ -105,6 +105,8 @@ public class Main {
         City city10 = new Capital();
         System.out.println("city name: " + city10.getName() + " latitude: " + city10.getLatitude() + " longitude: " + city10.getLongitude());
 
+        // 向下转型
+        System.out.println("向下转型：");
         city10 = (Capital)city9;
         System.out.println("city name: " + city10.getName() + " latitude: " + city10.getLatitude() + " longitude: " + city10.getLongitude());
     }
