@@ -120,15 +120,11 @@ public class Main {
         }
 
         City city12 = new Capital();
-        // city12.setProvince("Jiang Su"); 报错，因为city12是City类型，没有setProvince方法
-        // 这里发生了向上转型
         if(city12 instanceof Capital) {
-            city12 = (Capital)city12;
-            if(city12 instanceof Capital) {
-                System.out.println("city12 is cast to a Capital");
-            } else {
-                System.out.println("city12 is still not a Capital");
-            }
+            Capital capital = (Capital)city12;
+            capital.setProvince("Jiang Su");
+            city12 = capital;
+            System.out.println("city12 is the Capital of " + city12.getProvince());
             System.out.println("city12 is a City");
         } else {
             System.out.println("city12 is not a City");
