@@ -112,10 +112,26 @@ public class Main {
         
         // instanceof
         System.out.println("instanceof：");
-        if(city10 instanceof City && city10 instanceof Capital) {
-            System.out.println("city10 is a Capital");
+        City city11 = new City();
+        if(city11 instanceof Capital) {
+            System.out.println("city11 is a Capital");
         } else {
-            System.out.println("city10 is not a Capital");
+            System.out.println("city11 is not a Capital, but can be cast to a Capital");
+        }
+
+        City city12 = new Capital();
+        // city12.setProvince("Jiang Su"); 报错，因为city12是City类型，没有setProvince方法
+        // 这里发生了向上转型
+        if(city12 instanceof Capital) {
+            city12 = (Capital)city12;
+            if(city12 instanceof Capital) {
+                System.out.println("city12 is cast to a Capital");
+            } else {
+                System.out.println("city12 is still not a Capital");
+            }
+            System.out.println("city12 is a City");
+        } else {
+            System.out.println("city12 is not a City");
         }
     
     }
