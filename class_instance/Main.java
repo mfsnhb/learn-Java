@@ -191,6 +191,10 @@ final class Capital extends City {
         super();
     }
 
+    public Capital(String name) {
+        super(name);
+    }
+
     public Capital(String name, double longtitude, double latitude, String province, String country) {
         super(name, latitude, longtitude);
     }
