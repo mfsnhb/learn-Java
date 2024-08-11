@@ -99,10 +99,18 @@ public class Main {
         Capital city9 = new Capital("Nan Jing", 118.7969, 32.0603, "Jiang Su", "China");
 
         System.out.println("city name: " + city9.getName() + " latitude: " + city9.getLatitude() + " longitude: " + city9.getLongitude() + " province: " + city9.getProvince() + " country: " + city9.getCountry());
+
+        // 向上转型
+        System.out.println("向上转型：");
+        City city10 = new Capital();
+        System.out.println("city name: " + city10.getName() + " latitude: " + city10.getLatitude() + " longitude: " + city10.getLongitude());
+
+        city10 = (Capital)city9;
+        System.out.println("city name: " + city10.getName() + " latitude: " + city10.getLatitude() + " longitude: " + city10.getLongitude());
     }
 }
 
-class City {
+sealed class City permits Capital {
     protected String name;
     protected double latitude;
     protected double longitude;
@@ -173,9 +181,13 @@ class City {
     }
 }
 
-class Capital extends City {
+final class Capital extends City {
     protected String province;
     protected String country;
+
+    public Capital() {
+        super();
+    }
 
     public Capital(String name, double longtitude, double latitude, String province, String country) {
         super(name, latitude, longtitude);
