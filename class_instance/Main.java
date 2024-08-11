@@ -109,6 +109,15 @@ public class Main {
         System.out.println("向下转型：");
         city10 = (Capital)city9;
         System.out.println("city name: " + city10.getName() + " latitude: " + city10.getLatitude() + " longitude: " + city10.getLongitude());
+        
+        // instanceof
+        System.out.println("instanceof：");
+        if(city10 instanceof City && city10 instanceof Capital) {
+            System.out.println("city10 is a Capital");
+        } else {
+            System.out.println("city10 is not a Capital");
+        }
+    
     }
 }
 
