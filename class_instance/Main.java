@@ -123,13 +123,17 @@ public class Main {
         if(city12 instanceof Capital) {
             Capital capital = (Capital)city12;
             capital.setProvince("Jiang Su");
-            city12 = capital;
-            System.out.println("city12 is the Capital of " + city12.getProvince());
             System.out.println("city12 is a City");
         } else {
             System.out.println("city12 is not a City");
         }
-    
+        
+        // 覆写
+        System.out.println("覆写：");
+        System.out.println("if City city11 = new City():");
+        city11.run();
+        System.out.println("if City city12 = new Capital():");
+        city12.run();
     }
 }
 
@@ -202,6 +206,11 @@ sealed class City permits Capital {
     public double getLongitude() {
         return longitude;
     }
+
+    // 覆写
+    public void run() {
+        System.out.println("City is running");
+    }
 }
 
 final class Capital extends City {
@@ -234,6 +243,12 @@ final class Capital extends City {
  
     public String getCountry() {
         return country;
+    }
+
+    // 覆写
+    @Override
+    public void run() {
+        System.out.println("Capital is running");
     }
 }
 
